@@ -1,6 +1,5 @@
 import { connect } from 'react-redux'
-import { tileDetails } from '../actions'
-import VisualTile from '../components/VisualTile'
+import RightMenu from '../components/RightMenu'
 
 // const getTile = (x, y, map) => ({
 //     map.get({x: x, y: y})
@@ -8,15 +7,16 @@ import VisualTile from '../components/VisualTile'
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        x: ownProps.x,
-        y: ownProps.y,
-        tile: state.gameMap.get("tilemap").get(ownProps.x+","+ownProps.y)
+        selectedTile: state.gameMap.get("selectedTile")
     }
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
+    return {
+
+    }
 }
 
 export default connect(
-    mapStateToProps,
-)(VisualTile)
+    mapStateToProps
+)(RightMenu)

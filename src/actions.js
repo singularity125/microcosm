@@ -10,3 +10,7 @@ export const TILE_DETAILS = 'TILE_DETAILS';
 export function createMap(width, height, seed) {
     return { type: CREATE_MAP, data: {width: width, height: height, seed: seed }}
   }
+
+export function tileDetails(x,y) {
+  return { type: TILE_DETAILS, tile: {x: x, y: y} }
+}

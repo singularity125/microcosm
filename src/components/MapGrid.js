@@ -4,6 +4,10 @@ import TileContainer from '../containers/TileContainer';
 
 class MapGrid extends Component {
 
+  // onTileClick = (tile) => {
+  //   this.props.onTileClick(tile)
+  // }
+
   constructor(props) {
     super(props)
   }
@@ -14,7 +18,9 @@ class MapGrid extends Component {
     let rowJsx = [];
     for(var j = 0; j < this.props.width; j++) {
       //let mytile = this.props.tilemap.get({x: j, y: i});
-    rowJsx.push(<TileContainer key={j+","+i} x={j} y={i} />);
+      let coord = {x: j, y: i}
+    rowJsx.push(<TileContainer key={j+","+i} x={j} y={i} 
+      onClick={() => this.props.tileDetails(coord.x,coord.y)} />);
     }
     //rowJsx = {rowJsx}</tr>;
     mapGrid.push(<div key={"mapRow_"+i}>{rowJsx}</div>)
