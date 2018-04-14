@@ -16,3 +16,10 @@
 .App-intro {
   font-size: large;
 }
+
+.mapTileButton {
+  height: 40px;
+  width: 40px;
+  font-size: 18px;
+  padding: 1px;
+}

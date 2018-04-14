@@ -2,10 +2,19 @@ import { CREATE_MAP,
 TILE_DETAILS } from '../actions'
 const { Map, set } = require('immutable')
 
+export const EMPTY_TILE = "EMPTY_TILE"
+export const BASE_TILE = "BASE_TILE"
+
 function createTerrainMap(width, height, seed) {
     var seedrandom = require('seedrandom')
     var myrng = seedrandom(seed);
     var terrainMap = Map();
+    //determine the base tile
+    var basex = Math.floor((width/2)+(myrng.int32() % (width/4)));
+    var basey = Math.floor((height/2)+(myrng.int32() % (height/4)));
+
+    console.log("X,Y "+basex+","+basey)
+
     //3 resources for now: trees, animals, minerals
     for (var i = 0; i < height; i++) {
       for (var j = 0; j < width; j++) {
@@ -16,7 +25,8 @@ function createTerrainMap(width, height, seed) {
           y: i,
           trees: Math.abs(myrng.int32() % 10000),
           animals: Math.abs(myrng.int32() % 10000),
-          minerals: Math.abs(myrng.int32() % 10000)
+          minerals: Math.abs(myrng.int32() % 10000),
+          type: (basex === j && basey === i ? BASE_TILE : EMPTY_TILE)
         };
         terrainMap = terrainMap.set(myKey, myTile)
       }
@@ -25,9 +35,9 @@ function createTerrainMap(width, height, seed) {
 }
 
 const newGameMap = Map({
-  width: 5,
-  height: 5,
-  tilemap: createTerrainMap(5,5,123),
+  width: 10,
+  height: 10,
+  tilemap: createTerrainMap(10,10,123),
   selectedTile: null
 })
 
