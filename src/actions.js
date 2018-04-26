@@ -2,6 +2,7 @@
 
 export const CREATE_MAP = 'CREATE_MAP';
 export const TILE_DETAILS = 'TILE_DETAILS';
+export const UPDATE_TICK = 'UPDATE_TICK';
 
 // other constants
 
@@ -13,4 +14,8 @@ export function createMap(width, height, seed) {
 
 export function tileDetails(x,y) {
   return { type: TILE_DETAILS, tile: {x: x, y: y} }
+}
+
+export function updateTick() {
+  return { type: UPDATE_TICK, time: new Date()}
 }

@@ -5,6 +5,7 @@ import { Provider } from 'react-redux'
 import './index.css';
 import App from './components/App';
 import rootReducer from './reducers/index';
+import { UPDATE_TICK } from './actions';
 
 const store = createStore(rootReducer)
 
@@ -13,9 +14,13 @@ console.log(store.getState())
 
 // Every time the state changes, log it
 // Note that subscribe() returns a function for unregistering the listener
-const unsubscribe = store.subscribe(() =>
-  console.log(store.getState())
-)
+// const unsubscribe = store.subscribe(() =>
+//   console.log(store.getState())
+// )
+
+setInterval(() => {
+    store.dispatch({ type: UPDATE_TICK, time: new Date() })
+  }, 200)
 
 render(
     <Provider store={store}>

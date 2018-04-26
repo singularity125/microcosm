@@ -2,13 +2,12 @@ import { connect } from 'react-redux'
 import { tileDetails,
     createMap } from '../actions';
 import MapGrid from '../components/MapGrid';
-const { Map } = require('immutable')
 
 const mapStateToProps = (state, ownProps) => ({
-        tilemap: state.gameMap.get("tilemap"),
-        width: state.gameMap.get("width"),
-        height: state.gameMap.get("height"),
-        selectedTile: state.gameMap.get("selectedTile")
+        tilemap: state.gameMap["tilemap"],
+        width: state.gameMap["width"],
+        height: state.gameMap["height"],
+        selectedTile: state.gameMap["selectedTile"]
     }
 )
 

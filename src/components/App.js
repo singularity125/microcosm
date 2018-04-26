@@ -3,20 +3,23 @@ import { connect } from 'react-redux'
 import { CREATE_MAP,
     createMap } from '../actions';
 import TopMenu from './TopMenu'
+import RightMenu from './RightMenu'
+import TileDetailsContainer from '../containers/TileDetailsContainer'
 import RightMenuContainer from '../containers/RightMenuContainer'
 import MapGridContainer from '../containers/MapGridContainer'
 
 import '../bootstrap-theme.css';
 import '../App.css';
+import LeftMenuContainer from '../containers/LeftMenuContainer';
 
 class App extends Component {
     // constructor(props) {
     //     super(props);
     //   }
     
-    //   componentWillMount() {
-    //     //this.dispatch.createMap(5,5,123)
-    //   }
+    //    componentWillMount() {
+    //      this.dispatch.createMap(5,5,123)
+    //    }
     
     //   componentWillUnmount() {
         
@@ -29,13 +32,13 @@ class App extends Component {
         <div className="row">
             <div className="col-md-12"><TopMenu /></div>
         </div>
-        <div className="row">
+        <div className="row" >
             <div className="col-md-4">
-                <h1>Left Menu</h1>
+                <LeftMenuContainer />
             </div>
             <div className="col-md-4">
                 <div className="Game-map">
-                    <h1>There should be a map here...</h1>
+                    <h2>Facility Map</h2>
                     <MapGridContainer />
                 </div>
             </div>
@@ -49,4 +52,4 @@ class App extends Component {
    }
 }
 
-export default App
+export default connect()(App)

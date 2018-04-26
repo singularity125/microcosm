@@ -8,6 +8,10 @@ class MapGrid extends Component {
   //   this.props.onTileClick(tile)
   // }
 
+  componentWillMount() {
+    //this.dispatch.createMap(5,5,123)
+  }
+
   constructor(props) {
     super(props)
   }
@@ -17,7 +21,6 @@ class MapGrid extends Component {
   for(var i = 0; i < this.props.height; i++) {
     let rowJsx = [];
     for(var j = 0; j < this.props.width; j++) {
-      //let mytile = this.props.tilemap.get({x: j, y: i});
       let coord = {x: j, y: i}
     rowJsx.push(<TileContainer key={j+","+i} x={j} y={i} 
       onClick={() => this.props.tileDetails(coord.x,coord.y)} />);

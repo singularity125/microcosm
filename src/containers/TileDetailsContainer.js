@@ -1,11 +1,10 @@
 import { connect } from 'react-redux'
-import RightMenu from '../components/RightMenu'
+import TileDetails from '../components/TileDetails'
 
 const mapStateToProps = (state, ownProps) => {
-    var tilex = state.gameMap["selectedTile"].x
-    var tiley = state.gameMap["selectedTile"].y
     return {
-        selectedTile: state.gameMap["selectedTile"]
+        tile: state.gameMap.selectedTile,
+        lastTick: state.gameMap.lastTick
     }
 }
 
@@ -17,4 +16,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 
 export default connect(
     mapStateToProps
-)(RightMenu)
+)(TileDetails)
